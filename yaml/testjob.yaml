@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ls-job
+spec:
+  template:
+    spec:
+      containers:
+        - name: ls-job
+          image: ubuntu:latest
+          command: ["ls", "-aRil"]
+      restartPolicy: Never
+  backoffLimit: 4
